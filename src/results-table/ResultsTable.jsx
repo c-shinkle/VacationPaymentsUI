@@ -1,19 +1,6 @@
 import "./ResultsTable.css";
 
 const ResultsTable = (props) => {
-  const func = (people) => {
-    return people.length ? (
-      people.map((person, i) => (
-        <tr key={i}>
-          <td>{person.name}</td>
-          <td>{person.amount}</td>
-        </tr>
-      ))
-    ) : (
-      <tr><td colSpan="2">No results</td></tr>
-    )
-  };
-
   const people = props.people;
   return (
     <table>
@@ -27,7 +14,18 @@ const ResultsTable = (props) => {
           <th>Name</th>
           <th>Amount</th>
         </tr>
-        {func(people)}
+        {people.length ? (
+          people.map((person, i) => (
+            <tr key={i}>
+              <td>{person.name}</td>
+              <td>{person.amount}</td>
+            </tr>
+          ))
+        ) : (
+          <tr>
+            <td colSpan="2">No results</td>
+          </tr>
+        )}
       </tbody>
     </table>
   );

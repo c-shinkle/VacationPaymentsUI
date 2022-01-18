@@ -75,9 +75,8 @@ const App = () => {
 
       let response;
       try {
-        response = await postData("http://127.0.0.1:5000/payments", pairs);
+        response = postData("http://localhost:8080/payments", pairs);
       } catch (e) {
-        console.error("Something bad happened");
         console.error(e);
         return [];
       }
